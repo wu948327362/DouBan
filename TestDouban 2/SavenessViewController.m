@@ -9,6 +9,7 @@
 #import "SavenessViewController.h"
 #import "ActivitySaveController.h"
 #import "MyDataBaseTools.h"
+#import "UserDatabase.h"
 
 @interface SavenessViewController ()
 
@@ -34,6 +35,9 @@
 
 - (void)clearAction:(UIButton *)sender{
     [[MyDataBaseTools sharedInstance] clearAll];
+    [[UserDatabase sharedInstance] openDb];
+    [[UserDatabase sharedInstance] LoginOut];
+    [[UserDatabase sharedInstance] closeDb];
 }
 
 - (void)activityAction:(UIButton *)sender{
